@@ -8,10 +8,5 @@
  * Controller of the firewallRestApp
  */
 angular.module('firewallRestApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('StatusController', function ($scope) {
   });
