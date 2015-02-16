@@ -30,6 +30,10 @@ angular
         templateUrl: 'views/status.html',
         controller: 'StatusController'
       })
+      .when('/rules', {
+        templateUrl: 'views/rules.html',
+        controller: 'RulesController'
+      })
       .otherwise({
         redirectTo: '/'
       });
