@@ -7,13 +7,6 @@
  * Controller of the firewallRestApp
  */
 angular.module('firewallRestApp')
-  .service('statuss', function () {
-    this.query = function () {
-
-      return [{
-      status: 'enable',
-      switch_id: '0000000000000001'
-    }];
-
-    }
+  .factory('statuss', function ($resource) {
+    return $resource('http://localhost:8080/firewall/module/status');
   });
