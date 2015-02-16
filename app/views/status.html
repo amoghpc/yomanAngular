@@ -1,1 +1,27 @@
 <h1>Status</h1>
+
+<div class="row">
+  <div class="form-group col-xs-3">
+    <label for=""> Search</label>
+    <input type="search" name="search" ng-model="filterBy.search" class="form-control"/>
+  </div>
+
+  <div class="form-group col-xs-3">
+  <label for=""> Status</label>
+  <select
+  name="cstatu"
+  ng-model="filterBy.cstatu"
+  ng-options="c.status for c in cstatus"
+  class="form-control">
+  </select>
+  </div>
+
+
+</div>
+
+<ul>
+<li ng-repeat="stat in statuss | filter:{switch_id: filterBy.search} | statuss:filterBy ">
+<span class="label label-default">{{stat.switch_id}}</span>
+{{stat.status}}
+</li>
+</ul>
