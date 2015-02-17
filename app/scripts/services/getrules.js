@@ -1,15 +1,25 @@
   'use strict';
   angular.module('firewallRestApp')
-    .service('ruleservice', function ($http) {
+    .service('getrules', function ($http) {
       this.passparam = function (lsent,url) {
         console.log("Inside Rule service");
         console.log("Inside paramsent service");
         console.log(lsent);
-        url="http://localhost:8080/firewall/rules/";
-        url = url + lsent.switch_id;
-        console.log(lsent);
+        console.log(lsent.switch_id.switch_id);
+         url='http://localhost:8080/firewall/rules/';
+         if(lsent.switch_id.switch_id != '0000000000000001')
+          {
+            url = url+lsent.switch_id.switch_id
+          }
+          else
+          {
+            url = url+'0000000000000001'
+          }
+
+
+
         var request_param = {
-                            method: 'POST',
+                            method: 'GET',
                             url: url,
                              headers: {
                                         'Content-Type': undefined

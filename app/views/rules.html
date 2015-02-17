@@ -42,6 +42,18 @@
 
 
   <h1>Rules</h1>
+
+ <div class="form-group">
+        <label for="">Status</label>
+        <select
+        class="form-control"
+        name="switch_id"
+        ng-change="change()"
+        ng-model="switchrule.switch_id"
+        ng-options="c.switch_id for c in switch_id"></select>
+</div>
+
+
   <ul>
     <div class="panel panel-primary" ng-repeat="r in rules">
      <div class="panel-heading">{{"Switch ID : " + r.switch_id}}</div>
