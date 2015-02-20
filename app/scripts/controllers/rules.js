@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('firewallRestApp')
-  .controller('RulesController', function ($scope,rules,ruleservice,switch_id,getrules) {
+  .controller('RulesController', function ($scope,rules,ruleservice,switch_id,getrules,deleteRule) {
     $scope.switch_id = switch_id.query();
     console.log("switch ISs");
     console.log($scope.switch_id);
@@ -15,6 +15,12 @@ angular.module('firewallRestApp')
       promise.then(success,error);
     };
 
+    $scope.deleteRuleMeth = function (rule) {
+      console.log("inside delete rules");
+      var promise = deleteRule.passparam(rule);
+    };
+
+
     var success = function()
     {
       $scope.rightParams=true;
@@ -24,8 +30,6 @@ angular.module('firewallRestApp')
     {
       $scope.wrongParams=true;
     }
-
-
 
 
 
