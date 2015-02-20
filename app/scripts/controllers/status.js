@@ -10,7 +10,7 @@
 angular.module('firewallRestApp')
   .controller('StatusController', function ($scope,statuss,cstatus,paramsent) {
 
-    $scope.statuss = [ { status: 'All'} ];
+    $scope.statuss = [];
 
     $scope.serverStatuss = statuss.query(function(){
        $scope.statuss = $scope.statuss.concat($scope.serverStatuss);

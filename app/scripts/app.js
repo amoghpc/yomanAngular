@@ -34,6 +34,9 @@ angular
         templateUrl: 'views/rules.html',
         controller: 'RulesController'
       })
+      .when('/topo', {
+        redirectTo: 'http://localhost:7474/browser/'
+      })
       .otherwise({
         redirectTo: '/'
       });

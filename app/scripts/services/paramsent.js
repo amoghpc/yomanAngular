@@ -6,8 +6,8 @@
 ]);*/
 
 angular.module('firewallRestApp')
-  .service('paramsent', function ($http) {
-    this.passparam = function (lsent,url) {
+  .service('paramsent', function ($http,$resource) {
+    this.passparam = function (lsent,url,config) {
       console.log("Inside paramsent service");
       console.log(lsent.status.status);
       url="http://localhost:8080/firewall/module/";
@@ -24,16 +24,20 @@ angular.module('firewallRestApp')
 
       console.log(url);
 
-        var request_param = {
-                            method: 'PUT',
-                            url: url,
-                             headers: {
-                                        'Content-Type': 'application/json'
-                                      },
-                            data : {}
-                          };
 
-        return $http(request_param);
+      console.log(url);
+
+              var request_param = {
+                            method: 'put',
+                            url: url,
+                            headers: {
+                                     'Content-Type': undefined
+                                    }
+                           /* data: {"nw_src": lsent.nw_src, "nw_dst": lsent.nw_dst, "nw_proto": lsent.nw_proto, "actions": lsent.actions, "priority": lsent.priority}*/
+                          };
+        console.log($resource.put(request_param));
+
+        return $resource.put(request_param);
 /*
       return $http.post('http://localhost:8080/firewall/module/enable/0000000000000001')*/
     };

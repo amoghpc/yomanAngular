@@ -6,7 +6,7 @@
         console.log("Inside paramsent service");
         console.log(lsent);
         url="http://localhost:8080/firewall/rules/";
-        url = url + lsent.switch_id;
+        url = url + lsent.switch_ido;
         console.log(lsent);
         var request_param = {
                             method: 'POST',

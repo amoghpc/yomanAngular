@@ -1,4 +1,4 @@
-  <h1>Status</h1>
+  <h2>Status of Switches</h2>
 
   <div class="row">
 
@@ -19,16 +19,34 @@
       </select>
     </div>
 
-  <ul id=edges class="col-md-12">
-  <li ng-repeat="stat in statuss | filter:{switch_id: filterBy.search} | statuss:filterBy ">
-  <span class="label label-default">{{stat.switch_id}}</span>
-  {{stat.status}}
-  </li>
+    <ul class="col-md-12">
+    <div class="panel panel-primary" >
+     <div class="panel-heading">{{"Status of switches"}}</div>
+    </br>
+    <div>
+     <div >
+
+      <table class="table">
+        <tr>
+          <th>Switch ID</th>
+          <th>Status</th>
+        </tr>
+        <tr ng-repeat="stat in statuss | filter:{switch_id: filterBy.search} | statuss:filterBy ">
+          <td>{{stat.switch_id}}</td>
+          <td>{{stat.status}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  </div>
+
   </ul>
 
   </div>
 
   <div class="col-md-4">
+    <h2>change status</h2>
   <form name="switchForm" novalidate ng-submit="enableSwitch()">
       <div class="form-group" ng-class="{'has-error' : switchForm.switch_id.$invalid}">
         <label for="">Switch ID</label>

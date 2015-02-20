@@ -11,18 +11,34 @@ angular.module('firewallRestApp')
 
      $scope.submitRules = function(){
       console.log($scope.switchrule);
-      ruleservice.passparam($scope.switchrule);
+      var promise = ruleservice.passparam($scope.switchrule);
+      promise.then(success,error);
     };
 
-    $scope.change = function(){
-      console.log("Inside change");
-      console.log($scope.switchrule);
-      $scope.rules1=getrules.passparam($scope.switchrule);
+    var success = function()
+    {
+      $scope.rightParams=true;
+    }
 
+     var error = function()
+    {
+      $scope.wrongParams=true;
+    }
+
+
+
+
+
+
+
+
+    $scope.change = function(){
+      $scope.rules1=getrules.passparam($scope.switchrule);
        $scope.rules1.success(function(data, status, headers, config) {
     // this callback will be called asynchronously
     // when the response is available
     $scope.rules =data;
+    console.log("Inside sucess");
   }).
   error(function(data, status, headers, config) {
     // called asynchronously if an error occurs
